@@ -17,7 +17,7 @@ def main():
     if attachments_gz is not None:
         init_thread(DMARCSC.srv_max_worker, attachments_gz)
 
-    # DMARCSC.update_config_start_datetime()
+    DMARCSC.update_config_start_datetime()
 
 
 def init_main():
