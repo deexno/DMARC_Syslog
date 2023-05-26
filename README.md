@@ -1,4 +1,4 @@
-# DMARC2Syslog
+# DMARC Syslog
 Python script to read DMARC reports from a mailbox, parse them, format them as syslog messages, and send them to syslog server. 
 
 Useful to send DMARC report to SIEM to build use cases.
@@ -7,11 +7,10 @@ Useful to send DMARC report to SIEM to build use cases.
 Supported mailbox access:
   1. EWS (Exchange Web Service)
 
-
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Supported Syslog messages formats:
-  1. LEEF v1
-
+Supported Report Formats:
+  1. \*.zip
+  2. \*.gz
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Requirements:
@@ -24,39 +23,6 @@ How to use it:
   1. Provide the required configuration in the configuration file "config.ini" 
   2. create a task scheduler or cron job to run the script file "start.py", as an example each 10 minutes.
   3. The script manages the last time it checked for reports and it starts from last time check.
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------
-available information for each record in the DMARC report and the LEEF key name:
-XML Tag | LEEF Key
---- | ---
-dmarc_report_version | ver=
-dmarc_report_metadata_org_name  | orgName=
-dmarc_report_metadata_email  | email=
-dmarc_report_metadata_extra_contact_info  | extraContactInfo=
-dmarc_report_metadata_report_id  | reportID=
-dmarc_report_date_range_begin  | dateRangeBegin=
-dmarc_report_date_range_end  | dateRangeEnd=
-dmarc_report_policy_published_domian  | policyPublishedDomain=
-dmarc_report_policy_published_adkim  | policyPublishedADKIM=
-dmarc_report_policy_published_aspf  | policyPublishedASPF=
-dmarc_report_policy_published_p  | policyPublishedP=
-dmarc_report_policy_published_sp  | policyPublishedSP=
-dmarc_report_policy_published_pct  | policyPublishedPCT=
-dmarc_report_policy_published_fo  | policyPublishedFO=
-dmarc_record_row_source_ip  | RecordRowSourceIP=
-dmarc_record_row_count  | RecordRowCount=
-dmarc_record_row_policy_evaluated_disposition | RecordRowPolicyEvaluatedDisposition=
-dmarc_record_row_policy_evaluated_dkim  | RecordRowPolicyEvaluatedDKIM=
-dmarc_record_row_policy_evaluated_spf  | RecordRowPolicyEvaluatedSPF=
-dmarc_record_identifiers_header_from  | RecordIdentifiersHeaderFrom=
-dmarc_record_identifiers_envelope_from  | RecordIdentifiersEnvelopeFrom=
-dmarc_record_auth_results_dkim_domain  | RecordAuthResultsDKIMDomain=
-dmarc_record_auth_results_dkim_result  | RecordAuthResultsDKIMResult=
-dmarc_record_auth_results_dkim_selector  | RecordAuthResultsDKIMSelector=
-dmarc_record_auth_results_spf_domain  | RecordAuthResultsSPFDomain=
-dmarc_record_auth_results_spf_result  | RecordAuthResultsSPFResult=
-
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Configuration File:
