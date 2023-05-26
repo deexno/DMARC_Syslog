@@ -8,7 +8,7 @@ Supported mailbox access:
   1. EWS (Exchange Web Service)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Supported Report Formats:
+Supported Report Formats / Attachments:
   1. \*.zip
   2. \*.gz
 
