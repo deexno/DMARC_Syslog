@@ -17,6 +17,14 @@ Requirements:
   1. Python 3.10
   2. exchangelib 4.6.2 : installation command -> pip install exchangelib 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Installation:
+  1. git clone https://github.com/deexno/DMARC_Syslog.git
+  2. mkdir /opt/dmarc_syslog
+  3. cp -R DMARC_Syslog/bin/* /opt/dmarc_syslog/
+  4. cp DMARC_Syslog/service/* /etc/systemd/system/
+  5. systemctl daemon-reload
+  6. systemctl enable --now dmarc_syslog.timer dmarc_syslog.service
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 How to use it:
