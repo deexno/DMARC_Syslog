@@ -3,7 +3,7 @@ Description=Extracts DMARC data from the email inbox
 
 [Timer]
 Unit=dmarc_syslog.service
-OnCalendar=*:0/5
+OnCalendar=*:0/30
 
 [Install]
 WantedBy=timers.target
