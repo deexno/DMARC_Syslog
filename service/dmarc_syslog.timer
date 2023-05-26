@@ -1,0 +1,9 @@
+[Unit]
+Description=Extracts DMARC data from the email inbox
+
+[Timer]
+Unit=dmarc_syslog.service
+OnCalendar=*:0/5
+
+[Install]
+WantedBy=timers.target
