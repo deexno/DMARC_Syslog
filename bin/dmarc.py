@@ -1,3 +1,6 @@
+from logger import SyslogClient
+
+
 class DMARCExtractor:
     def __init__(self) -> None:
         self.base_data_relations_tree = {
@@ -37,17 +40,21 @@ class DMARCExtractor:
         value = xml.find(key)
         return value.text if value is not None else "none"
 
-    def extract_variables(self, xml):
-        msg = ""
+    def log_event(self, xml):
+        reporter_details = ""
 
         reporter_org = self.get_xml_value(xml, "./report_metadata/org_name")
         print(f"A report from: {reporter_org} was logged")
 
         for name, key in self.base_data_relations_tree.items():
-            msg += f"{name}={self.get_xml_value(xml, key)} "
+            reporter_details += f"{name}={self.get_xml_value(xml, key)} "
 
         for record in xml.findall("./record"):
+            msg = reporter_details
+
             for name, key in self.record_data_relations_tree.items():
                 msg += f"{name}={self.get_xml_value(record, key)} "
+
+            SyslogClient.log_info_msg(msg)
 
         return msg

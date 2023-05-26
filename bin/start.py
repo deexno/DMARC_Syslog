@@ -94,10 +94,9 @@ def exec_thread(attachment_gz):
         # Convert the decompressed byte content to XML
         result = Utility.byte_to_xml(result)
 
-        dmar_extractor = DMARCExtractor()
-
         # Send the collected Data to the Syslog Server
-        SyslogClient.log_info_msg(dmar_extractor.extract_variables(result))
+        dmar_extractor = DMARCExtractor()
+        dmar_extractor.log_event(result)
     except Exception as exception:
         ExceptlogClient.log_except(exception)
 
